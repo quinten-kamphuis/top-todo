@@ -8,6 +8,46 @@
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    
+
+    <dialog class="modal" id="add-project-modal">
+        <form method="dialog">
+            <h2>Add project</h2>
+            <input type="text" class="title-input" placeholder="Title">
+            <div class="buttons">
+                <button type="submit" class="save-buttton">Save</button>
+                <button class="cancel-buttton">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="wrapper">
+        <header class="header">
+            <h1>Todo</h1>
+        </header>
+        <hr>
+        <main>
+            <div class="projects">
+                <div class="list-header">
+                    <h2 class="list-title">Projects</h2>
+                    <button class="add-button" id="add-project"><p>+</p></button>
+                </div>
+                <div class="projects-list">
+                    <div class="list-item"><h3>Corinna Ai</h3><button class="open-button"><p>:</p></button></div>
+                    <div class="list-item"><h3>Tic Tac Toe</h3><button class="open-button"><p>:</p></button></div>
+                </div>
+            </div>
+            <hr>
+            <div class="todos">
+                <div class="list-header">
+                    <h2 class="list-title">Todo's</h2>
+                    <button class="add-button" id="add-todo"><p>+</p></button>
+                </div>
+                <div class="todos-list">
+                    <div class="list-item"><h4>Adjust setting</h4><button class="open-button"><p>:</p></button></div>
+                    <div class="list-item"><h4>Optimize bot</h4><button class="open-button"><p>:</p></button></div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

@@ -1,0 +1,151 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    padding: 3rem 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000033;
+    color: white;
+    height: 100vh;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    height: 100%;
+    max-height: 650px;
+}
+main{
+    display: flex;
+    height: 100%;
+}
+.projects, .todos{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.8rem;
+}
+.list-header{
+    padding: 0.2rem 0;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px white solid;
+}
+
+.add-button, .open-button{
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;    
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.add-button p, .open-button p{
+    position: absolute;
+    top: 49%;
+    left: 49%;
+    transform: translate(-49%, -49%);
+}
+.add-button p{
+    font-size: 1.2rem;
+}
+.open-button p{
+    
+    font-weight: 900;
+    font-size: 0.8rem;
+}
+
+.list-header, .list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.projects-list, .todos-list{
+    height: 100%;
+    overflow-y: auto;
+}
+.list-item{
+    margin-right: 0.8rem;
+    border-top: 1px white solid;
+}
+.projects-list .list-item{
+    padding: 0.8rem 0;
+
+}
+.todos-list .list-item{
+    padding: 0.4rem 0;
+}
+.list-item:first-child{
+    border: none;
+    padding-top: 0;
+}
+
+/* Modal */
+.modal::backdrop{
+    background: rgba(0, 0, 0, 0.4);
+}
+.modal{
+    margin: 25% auto;
+    padding: 1.4rem;
+    background-color: #000033;
+    border: 1px white solid;
+    color: white;
+}
+.modal form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.modal form input{
+    background-color: #00001a;
+    border: 1px solid white;
+    font-size: 1.2rem;
+    color: white;
+    outline: none;
+    padding: 0.2rem 0.4rem;
+}
+.modal .buttons{
+    display: flex;
+    gap: 0.8rem;
+}
+.modal button{
+    flex: 1;
+    background-color: #00001a;
+    border: 1px solid white;
+    font-size: 1rem;
+    color: white;
+    padding: 0.2rem;
+    outline: none;
+}
+.modal form input:focus, .modal form input:hover, .modal button:focus, .modal button:hover{
+    background-color: #303030;
+}
+
+
+/* Custom scrollbar */
+*::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #1a1a3d;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #9FA6A8;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #ABB3B5;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #7D8384;
+  }
