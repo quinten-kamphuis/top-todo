@@ -24,6 +24,7 @@ main{
 }
 .projects, .todos{
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     padding: 1rem 0.8rem;
@@ -73,9 +74,19 @@ main{
     margin-right: 0.8rem;
     border-top: 1px white solid;
 }
+.list-item.selected{
+    text-decoration: underline;
+}
 .projects-list .list-item{
     padding: 0.8rem 0;
-
+}
+.projects-list .list-item h3{
+    cursor: pointer;
+}
+.list-item *{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .todos-list .list-item{
     padding: 0.4rem 0;
@@ -101,13 +112,19 @@ main{
     flex-direction: column;
     gap: 0.8rem;
 }
-.modal form input{
+.modal form input, .modal form textarea{
     background-color: #00001a;
     border: 1px solid white;
     font-size: 1.2rem;
     color: white;
     outline: none;
     padding: 0.2rem 0.4rem;
+}
+.modal form textarea{
+    width: 100%;
+    font-size: 1rem;
+    max-height: 175px;
+    resize: vertical;
 }
 .modal .buttons{
     display: flex;
@@ -122,7 +139,12 @@ main{
     padding: 0.2rem;
     outline: none;
 }
-.modal form input:focus, .modal form input:hover, .modal button:focus, .modal button:hover{
+.modal form input:focus, 
+.modal form input:hover, 
+.modal button:focus, 
+.modal button:hover,
+.modal form textarea:focus,
+.modal form textarea:hover{
     background-color: #303030;
 }
 
