@@ -1,7 +1,16 @@
 import logger from './logger.js'
 import validation from './validation.js';
 
-const projects = []
+const projects = loadProjects();
+
+function saveProjects() {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+function loadProjects() {
+    const data = localStorage.getItem('projects');
+    return data ? JSON.parse(data) : [];
+}
 
 const generateProjectId = () => {
     return projects.length > 0 ? Math.max(...projects.map(p => p.id)) + 1 : 1;
@@ -53,8 +62,9 @@ const deleteProject = (projectId) => {
     if (index === null) {
         return false
     }
-    projects.splice(index, 1);
     logger.message("Project and it's todo's where successfully deleted")
+    projects.splice(index, 1);
+    saveProjects()
     return true
 }
 
@@ -69,6 +79,7 @@ const addProject = (name) => {
     }
     // logger.message('Project successfully added')
     projects.push(project)
+    saveProjects()
     return true
 }
 
@@ -81,6 +92,7 @@ const editProjectName = (id, name) => {
         return false
     }
     projects[index].name = name
+    saveProjects()
     return true
 }
 
@@ -95,6 +107,7 @@ const deleteTodo = (projectId, id) => {
     }
     projects[projectIndex].todos.splice(todoIndex, 1);
     logger.message("Todo was successfully deleted")
+    saveProjects()
     return true
 }
 
@@ -115,6 +128,7 @@ const addTodo = (projectId, title, description) => {
         description: description,
     })
     // logger.message('Todo successfully added')
+    saveProjects()
     return true
 }
 
@@ -135,6 +149,7 @@ const editTodo = (projectId, id, title, description) => {
     }
     projects[projectIndex].todos[todoIndex].title = title
     projects[projectIndex].todos[todoIndex].description = description
+    saveProjects()
     return true
 }
 

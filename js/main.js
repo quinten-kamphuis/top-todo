@@ -19,6 +19,11 @@ const editProjectInput = document.querySelector('#edit-project-modal .title-inpu
 const editTodoTitleInput = document.querySelector('#edit-todo-modal .title-input')
 const editTodoDescriptionInput = document.querySelector('#edit-todo-modal .description-input')
 
+document.addEventListener('DOMContentLoaded', () => {
+    const projectsArray = projects.getProjects()
+    ui.updateProjects(projectsArray);
+})
+
 const cancelAll = () => {
     addProjectInput.value = ''
     addTodoTitleInput.value = ''
