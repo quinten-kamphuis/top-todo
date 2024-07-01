@@ -47,7 +47,6 @@ const confirmAction = (message, callback) => {
 }
 
 document.addEventListener('click', e => {
-
     //Add project
     if (e.target.matches('#add-project')){
         addProjectModal.showModal()
@@ -159,8 +158,10 @@ document.addEventListener('click', e => {
                 if (projects.deleteProject(idOfProjectEditing)) {
                     const projectsArray = projects.getProjects()
                     ui.updateProjects(projectsArray);
+                    if (idOfProjectEditing === idOfProjectSelected){
+                        idOfProjectSelected = 0;
+                    }
                     ui.updateSelectedProject(idOfProjectSelected)
-                    logger.message("Project and it's todo's where successfully deleted")
                     cancelAll();
                 }
             }

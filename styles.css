@@ -98,9 +98,6 @@ main{
 }
 
 /* Modal */
-.modal::backdrop{
-    background: rgba(0, 0, 0, 0.4);
-}
 .modal{
     margin: 25% auto;
     padding: 1.4rem;
@@ -154,21 +151,50 @@ main{
 *::-webkit-scrollbar {
     height: 7px;
     width: 7px;
-  }
-  *::-webkit-scrollbar-track {
+}
+*::-webkit-scrollbar-track {
     border-radius: 5px;
     background-color: #1a1a3d;
-  }
-  
-  *::-webkit-scrollbar-thumb {
+}
+*::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: #9FA6A8;
-  }
-  
-  *::-webkit-scrollbar-thumb:hover {
+}
+*::-webkit-scrollbar-thumb:hover {
     background-color: #ABB3B5;
-  }
-  
-  *::-webkit-scrollbar-thumb:active {
+}
+*::-webkit-scrollbar-thumb:active {
     background-color: #7D8384;
-  }
+}
+
+
+/* Toaster */
+#toaster {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+.toaster-msg {
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 2px solid white;
+    background-color: #000033;
+    display: block;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+.toaster-msg.show {
+    opacity: 1;
+}
+.toaster-msg.warning {
+    border: 2px solid #ffa600;
+}
+.toaster-msg.error {
+    border: 2px solid #f44336;
+}

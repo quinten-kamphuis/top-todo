@@ -54,6 +54,7 @@ const deleteProject = (projectId) => {
         return false
     }
     projects.splice(index, 1);
+    logger.message("Project and it's todo's where successfully deleted")
     return true
 }
 
@@ -66,6 +67,7 @@ const addProject = (name) => {
         name: name,
         todos: [],
     }
+    // logger.message('Project successfully added')
     projects.push(project)
     return true
 }
@@ -92,6 +94,7 @@ const deleteTodo = (projectId, id) => {
         return false
     }
     projects[projectIndex].todos.splice(todoIndex, 1);
+    logger.message("Todo was successfully deleted")
     return true
 }
 
@@ -111,7 +114,7 @@ const addTodo = (projectId, title, description) => {
         title: title,
         description: description,
     })
-    logger.message('Todo successfully added')
+    // logger.message('Todo successfully added')
     return true
 }
 
