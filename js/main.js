@@ -87,8 +87,7 @@ document.addEventListener('click', e => {
             addTodoTitleInput.value = ''
             addTodoDescriptionInput.value = ''
             const projectsArray = projects.getProjects()
-            const projectIndex = projects.findProjectIndex(idOfProjectSelected)
-            ui.loadTodos(projectsArray, projectIndex);
+            ui.loadTodos(projectsArray, idOfProjectSelected);
             addTodoModal.close()
         }
     }
@@ -98,9 +97,8 @@ document.addEventListener('click', e => {
         const projectId = parseInt(e.target.className.split('-').pop())
         idOfProjectSelected = projectId
         ui.updateSelectedProject(idOfProjectSelected)
-        const projectIndex = projects.findProjectIndex(projectId)
         const projectsArray = projects.getProjects()
-        ui.loadTodos(projectsArray, projectIndex)
+        ui.loadTodos(projectsArray, projectId)
     }
 
     //Edit project
@@ -150,8 +148,7 @@ document.addEventListener('click', e => {
             editTodoTitleInput.value = ''
             editTodoDescriptionInput.value = ''
             const projectsArray = projects.getProjects()
-            const projectIndex = projects.findProjectIndex(idOfProjectSelected)
-            ui.loadTodos(projectsArray, projectIndex);
+            ui.loadTodos(projectsArray, idOfProjectSelected);
             editTodoModal.close()
         }
     }
@@ -162,10 +159,11 @@ document.addEventListener('click', e => {
             if (confirmed) {
                 if (projects.deleteProject(idOfProjectEditing)) {
                     const projectsArray = projects.getProjects()
-                    ui.updateProjects(projectsArray);
                     if (idOfProjectEditing === idOfProjectSelected){
                         idOfProjectSelected = 0;
                     }
+                    ui.updateProjects(projectsArray);
+                    ui.loadTodos(projectsArray, idOfProjectSelected);
                     ui.updateSelectedProject(idOfProjectSelected)
                     cancelAll();
                 }
@@ -179,8 +177,7 @@ document.addEventListener('click', e => {
             if (confirmed) {
                 if (projects.deleteTodo(idOfProjectSelected, idOfTodoEditing)) {
                     const projectsArray = projects.getProjects()
-                    const projectIndex = projects.findProjectIndex(idOfProjectSelected)
-                    ui.loadTodos(projectsArray, projectIndex);
+                    ui.loadTodos(projectsArray, idOfProjectSelected);
                     editTodoModal.close()
                     cancelAll();
                 }
