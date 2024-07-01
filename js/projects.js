@@ -1,5 +1,5 @@
-import logger from './logger'
-import validation from './validation';
+import logger from './logger.js'
+import validation from './validation.js';
 
 const projects = []
 
@@ -22,12 +22,16 @@ const findProject = (projectId) => {
 }
 
 const findProjectIndex = (projectId) => {
-    const index = projects.findIndex(project => project.id === projectId)
-    if (index !== -1) {
-        return index
+    if (typeof projectId !== 'number'){
+        logger.error('Project ID was given as a string')
+        return null
     }
-    logger.error('The project could not be found')
-    return null
+    const index = projects.findIndex(project => project.id === projectId)
+    if (index === -1) {
+        logger.error('The project could not be found')
+        return null
+    }
+    return index
 }
 
 const findTodoIndex = (projectId, id) => {
@@ -146,11 +150,15 @@ const editTodo = (projectId, id, title, description) => {
     return true
 }
 
+const getProjects = () => projects
+
 export default {
+    findProjectIndex,
     deleteProject,
     addProject,
     editProjectName,
     deleteTodo,
     addTodo,
     editTodo,
+    getProjects,
 }
