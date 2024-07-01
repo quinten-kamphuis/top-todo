@@ -14,8 +14,55 @@
             <h2>Add project</h2>
             <input type="text" class="title-input" placeholder="Title">
             <div class="buttons">
-                <button type="submit" class="save-buttton">Save</button>
-                <button class="cancel-buttton">Cancel</button>
+                <button type="button" class="save-button">Save</button>
+                <button type="button" class="cancel-buttton">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="modal" id="add-todo-modal">
+        <form method="dialog">
+            <h2>Add todo</h2>
+            <input type="text" class="title-input" placeholder="Title">
+            <textarea class="description-input" placeholder="Description"></textarea>
+            <div class="buttons">
+                <button type="button" class="save-button">Save</button>
+                <button type="button" class="cancel-buttton">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="modal" id="edit-project-modal">
+        <form method="dialog">
+            <h2>Project</h2>
+            <input type="text" class="title-input" placeholder="Title">
+            <div class="buttons">
+                <button type="button" class="save-button">Save</button>
+                <button type="button" class="cancel-buttton">Cancel</button>
+                <button type="button" class="delete-buttton">Delete</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="modal" id="edit-todo-modal">
+        <form method="dialog">
+            <h2>Todo</h2>
+            <input type="text" class="title-input" placeholder="Title">
+            <textarea class="description-input" placeholder="Description"></textarea>
+            <div class="buttons">
+                <button type="button" class="save-button">Save</button>
+                <button type="button" class="cancel-buttton">Cancel</button>
+                <button type="button" class="delete-buttton">Delete</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="modal" id="sure-modal">
+        <form method="dialog">
+            <h2>Are you sure?</h2>
+            <div class="buttons">
+                <button type="button" class="yes-button">Yes</button>
+                <button type="button" class="cancel-buttton">Cancel</button>
             </div>
         </form>
     </dialog>
@@ -32,8 +79,6 @@
                     <button class="add-button" id="add-project"><p>+</p></button>
                 </div>
                 <div class="projects-list">
-                    <div class="list-item"><h3>Corinna Ai</h3><button class="open-button"><p>:</p></button></div>
-                    <div class="list-item"><h3>Tic Tac Toe</h3><button class="open-button"><p>:</p></button></div>
                 </div>
             </div>
             <hr>
@@ -43,8 +88,6 @@
                     <button class="add-button" id="add-todo"><p>+</p></button>
                 </div>
                 <div class="todos-list">
-                    <div class="list-item"><h4>Adjust setting</h4><button class="open-button"><p>:</p></button></div>
-                    <div class="list-item"><h4>Optimize bot</h4><button class="open-button"><p>:</p></button></div>
                 </div>
             </div>
         </main>
