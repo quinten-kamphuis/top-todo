@@ -13,6 +13,10 @@ const generateTodoId = (projectId) => {
 };
 
 const findProject = (projectId) => {
+    if (typeof projectId !== 'number'){
+        logger.error('Project ID was given as a string')
+        return null
+    }
     const project = projects.find(project => project.id === projectId)
     if (project) {
         return project
@@ -44,23 +48,8 @@ const findTodoIndex = (projectId, id) => {
     return null
 }
 
-const confirmDeletion = () => {
-    return new Promise((resolve) => {
-        const userConfirmed = window.confirm('Are you sure? (click OK to confirm)');
-        if (userConfirmed) {
-            resolve(true);
-        } else {
-            logger.log('User canceled the deletion');
-            resolve(false);
-        }
-    });
-};
-
-const deleteProject = async (id) => {
-    if (!(await confirmDeletion())) {
-        return false;
-    }
-    const index = findProjectIndex(id)
+const deleteProject = (projectId) => {
+    const index = findProjectIndex(projectId)
     if (index === null) {
         return false
     }
@@ -93,11 +82,7 @@ const editProjectName = (id, name) => {
     return true
 }
 
-const deleteTodo = async (projectId, id) => {
-    if (!(await confirmDeletion())) {
-        logger.log('User canceled the deletion')
-        return false;
-    }
+const deleteTodo = (projectId, id) => {
     const projectIndex = findProjectIndex(projectId)
     if (projectIndex === null) {
         return false

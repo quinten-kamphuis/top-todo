@@ -14,8 +14,8 @@
             <h2>Add project</h2>
             <input type="text" class="title-input" placeholder="Title">
             <div class="buttons">
-                <button type="button" class="save-button">Save</button>
-                <button type="button" class="cancel-buttton">Cancel</button>
+                <button type="button" class="save-add-project-button">Save</button>
+                <button type="button" class="cancel-button">Cancel</button>
             </div>
         </form>
     </dialog>
@@ -26,8 +26,8 @@
             <input type="text" class="title-input" placeholder="Title">
             <textarea class="description-input" placeholder="Description"></textarea>
             <div class="buttons">
-                <button type="button" class="save-button">Save</button>
-                <button type="button" class="cancel-buttton">Cancel</button>
+                <button type="button" class="save-add-todo-button">Save</button>
+                <button type="button" class="cancel-button">Cancel</button>
             </div>
         </form>
     </dialog>
@@ -37,9 +37,9 @@
             <h2>Project</h2>
             <input type="text" class="title-input" placeholder="Title">
             <div class="buttons">
-                <button type="button" class="save-button">Save</button>
-                <button type="button" class="cancel-buttton">Cancel</button>
-                <button type="button" class="delete-buttton">Delete</button>
+                <button type="button" class="save-edit-project-button">Save</button>
+                <button type="button" class="cancel-button">Cancel</button>
+                <button type="button" class="delete-project-button">Delete</button>
             </div>
         </form>
     </dialog>
@@ -50,9 +50,9 @@
             <input type="text" class="title-input" placeholder="Title">
             <textarea class="description-input" placeholder="Description"></textarea>
             <div class="buttons">
-                <button type="button" class="save-button">Save</button>
-                <button type="button" class="cancel-buttton">Cancel</button>
-                <button type="button" class="delete-buttton">Delete</button>
+                <button type="button" class="save-edit-todo-button">Save</button>
+                <button type="button" class="cancel-button">Cancel</button>
+                <button type="button" class="delete-todo-button">Delete</button>
             </div>
         </form>
     </dialog>
@@ -60,9 +60,10 @@
     <dialog class="modal" id="sure-modal">
         <form method="dialog">
             <h2>Are you sure?</h2>
+            <p></p>
             <div class="buttons">
-                <button type="button" class="yes-button">Yes</button>
-                <button type="button" class="cancel-buttton">Cancel</button>
+                <button value="cancel">Cancel</button>
+                <button value="confirm">Yes</button>
             </div>
         </form>
     </dialog>

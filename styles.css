@@ -53,10 +53,11 @@ main{
     transform: translate(-49%, -49%);
 }
 .add-button p{
+    z-index: -1;
     font-size: 1.2rem;
 }
 .open-button p{
-    
+    z-index: -1;
     font-weight: 900;
     font-size: 0.8rem;
 }
