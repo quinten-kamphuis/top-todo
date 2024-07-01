@@ -45,8 +45,6 @@ const confirmAction = (message, callback) => {
 
     sureModal.addEventListener('close', actionConfirmed);
 }
-  
-
 
 document.addEventListener('click', e => {
 
@@ -105,7 +103,9 @@ document.addEventListener('click', e => {
     if (e.target.matches('.list-item.project-item .open-button')) {
         const projectId = parseInt(e.target.parentNode.id.split('-').pop());
         idOfProjectEditing = projectId
-        editProjectInput.value = e.target.parentElement.childNodes[0].textContent
+        const projectIndex = projects.findProjectIndex(projectId)
+        const title = projects.getProjects()[projectIndex].name
+        editProjectInput.value = title
         editProjectModal.showModal()
     }
 
@@ -117,8 +117,11 @@ document.addEventListener('click', e => {
             logger.error('Tried to edit a todo without having a project selected')
             return false
         }
-        editTodoTitleInput.value = e.target.parentElement.childNodes[0].textContent
-        editTodoDescriptionInput.value = e.target.parentElement.childNodes[0].textContent
+        const projectIndex = projects.findProjectIndex(idOfProjectSelected)
+        const todoIndex = projects.findTodoIndex(idOfProjectSelected, id)
+        const { title, description } = projects.getProjects()[projectIndex].todos[todoIndex]
+        editTodoTitleInput.value = title
+        editTodoDescriptionInput.value = description
         editTodoModal.showModal()
     }
 

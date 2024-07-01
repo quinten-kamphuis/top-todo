@@ -139,6 +139,7 @@ const getProjects = () => projects
 
 export default {
     findProjectIndex,
+    findTodoIndex,
     deleteProject,
     addProject,
     editProjectName,
